@@ -1,50 +1,191 @@
+/* Allmänt */
+/* Grundläggande styling */
 body {
   margin: 0;
-  font-family: Arial, sans-serif;
-  background: #fafafa;
-  color: #333;
+  padding: 20px 40px;
+  font-family: "Poppins", sans-serif;
+  font-weight: 300;
+  background: #FFFFFF;
 }
 
+
+/* Header styling */
 header {
-  background: #222;
-  color: white;
-  padding: 1rem;
+  display: flex;
+  justify-content: space-between; /* Logga vänster, meny höger */
+  align-items: center;
+  background-color: #FFFFFF;
+  position: relative; 
 }
 
-nav ul {
-  list-style: none;
+/* Logo */
+.logo {
+  font-weight: light;
+  font-size: 18px;
+  text-decoration: none; /* ta bort understrykning */
+  color: #000; /* valfri färg */
+}
+
+.logo:hover {
+  color: #555; /* hover-effekt */
+}
+
+/* Meny */
+.menu ul {
   display: flex;
-  gap: 1rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  gap: 20px; /* Avstånd mellan menyalternativ */
+}
+
+.menu a {
+  text-decoration: none;
+  color: #000;
+  font-size: 16px;
+}
+
+/* Hover-effekt */
+.menu a:hover {
+  color: #555;
+}
+
+
+/* Hamburger */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 25px;
+  height: 20px;
+  cursor: pointer;
+  z-index: 10; /* så att den ligger ovanför menyn */
+}
+
+.hamburger span {
+  display: block;
+  height: 1.5px;
+  background-color: #000;
+  border-radius: 1px;
+  transition: 0.3s;
+}
+
+/* About section */
+.about {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 40px 20px;
+}
+
+.about-container {
+  display: flex;
+  gap: 40px;
+  align-items: flex-start;
+  margin-bottom: 40px;
+}
+
+.about-image img {
+  width: 440px;
+  height: auto;
+  border-radius: 12px;
+  object-fit: cover;
+}
+
+.about-text {
+  flex: 1;
+  font-size: 25px;
+  line-height: 1.6;
+}
+
+.about-details {
+  display: flex;
+  justify-content: space-between;
+  gap: 60px;
+}
+
+.about-details h3 {
+  font-size: 14px;
+  text-transform: uppercase;
+  font-weight: 500;
+  margin-bottom: 15px;
+  color: #555;
+}
+
+.about-details ul {
+  list-style: none;
   padding: 0;
   margin: 0;
 }
 
-nav a {
-  color: white;
-  text-decoration: none;
+.about-details li {
+  margin-bottom: 10px;
+  font-size: 16px;
 }
 
-.hero {
-  padding: 5rem 2rem;
-  text-align: center;
+
+/* Responsiv design  */
+@media (max-width: 600px) {
+
+  .hamburger {
+    display: flex;
+  }
+
+  .menu {
+    display: none; 
+    position: absolute;
+    top: 80px; /* under header */
+    left: 0;
+    width: 100%;
+    background-color: #fff;
+    text-align: left; /* vänsterjusterad */
+  }
+
+  .menu.show {
+    display: block;
+  }
+
+  .menu ul {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    margin: 0;
+    padding: 0 15px; /* matchar headerns padding-left */
+  }
+
+  .menu li {
+    list-style: none; /* inga punkter */
+  }
+
+  .menu a {
+    font-size: 50px; 
+    text-decoration: none; /* ingen understrykning */
+    color: #000;
+  }
+
+  .menu a:hover {
+    color: #555;
+  }
+
+  .logo {
+    display: inline-block; /* behåll logon */
+  }
 }
 
-.projects-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 2rem;
-  padding: 2rem;
-}
+@media (max-width: 768px) {
+  .about-container {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
 
-.project-card {
-  background: #fff;
-  border-radius: 10px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-  padding: 1rem;
-  text-align: center;
-}
+  .about-image img {
+    width: 180px;
+    margin-bottom: 20px;
+  }
 
-.project-card img {
-  max-width: 100%;
-  border-radius: 8px;
+  .about-details {
+    flex-direction: column;
+    text-align: center;
+    gap: 30px;
+  }
 }

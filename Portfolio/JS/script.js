@@ -1,3 +1,11 @@
-document.addEventListener("DOMContentLoaded", () => {
-  console.log("Välkommen till Majas portfolio!");
+document.addEventListener('DOMContentLoaded', () => {
+  const hamburger = document.getElementById('hamburger');
+  const menu = document.getElementById('menu');
+
+  hamburger.addEventListener('click', () => {
+    menu.classList.toggle('show');
+    hamburger.classList.toggle('active'); // ändrar hamburger till kryss
+  });
 });
+
+
