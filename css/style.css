@@ -3,7 +3,7 @@
 body {
   margin: 0;
   padding: 20px 40px;
-  font-family: "Poppins", sans-serif;
+  font-family: "DM Sans", sans-serif;
   font-weight: 300;
   background: #FFFFFF;
 }
@@ -16,6 +16,14 @@ header {
   align-items: center;
   background-color: #FFFFFF;
   position: relative; 
+}
+
+h3 {
+  margin: 0;
+  font-weight: 300; /* tunnare */
+  font-size: 15px;
+  color: #555;
+  text-transform: uppercase;
 }
 
 /* Logo */
@@ -70,12 +78,115 @@ header {
   transition: 0.3s;
 }
 
-/* About section */
+/* Pitch section */
+.intro {
+  width: 50%;           /* Ta upp halva bredden */
+  margin-left: auto;    /* Tryck den till höger */
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Centrera innehåll vertikalt */
+}
+
+.intro h1 {
+  margin: 0;
+  font-size: clamp(1.5rem, 12vw, 10rem);
+  margin-bottom: 1rem;
+  font-weight: 500;
+  line-height: 1.1;
+}
+
+.intro h2 {
+  padding-top: 15px;
+  font-size: clamp(1rem, 3vw, 1.2rem);
+   margin: 0;
+  font-size: 1.2rem;
+  font-weight: 200;
+  line-height: 1.5;
+  border-bottom: 1000px;
+}
+
+
+
+/* projects */
+.alternating {
+  display: flex;
+  flex-direction: column;
+  gap: 80px; /* avstånd mellan raderna */
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 60px 20px;
+}
+
+.rows {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* två kolumner */
+  align-items: center;
+  gap: 40px;
+}
+
+.rows .image img {
+  width: 100%;
+  border-radius: 12px;
+  object-fit: cover;
+}
+
+.text h2{
+  font-size: 30px;
+  font-weight: 400;
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+}
+
+.text p{
+  margin-top: 0;
+  font-size: 16px;
+  font-weight: 200;
+  width: 92%;
+}
+
+.view-project {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 18px;
+  font-weight: 400;
+  color: #111;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.view-project:hover {
+  color: #555;
+}
+
+.circle-icon {
+  width: 40px;
+  height: 40px;
+  border: 1.5px solid #111;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.circle-icon::before {
+  content: "";
+  width: 10px;
+  height: 10px;
+  border: solid #111;
+  border-width: 0 2px 2px 0;
+  transform: rotate(-45deg); /* pil uppåt-höger */
+  position: absolute;
+}
+
+
 /* About section */
 .about {
   max-width: 1200px;
   margin: 0 auto;
-  padding: clamp(20px, 5vw, 40px) 20px; /* dynamisk padding */
+  padding: clamp(20px, 5vw, 80px) 20px; /* dynamisk padding */
 }
 
 .about-container {
@@ -103,37 +214,39 @@ header {
 /* Text */
 .about-text {
   flex: 2;
-  font-size: clamp(16px, 2.5vw, 28px); /* dynamisk textstorlek */
+  font-size: clamp(16px, 2.5vw, 35px); /* dynamisk textstorlek */
   line-height: clamp(1.4, 2.5vw, 1.6); /* smidigare radavstånd */
   padding-left: clamp(0px, 2vw, 20px); /* dynamiskt indrag */
 }
 
 /* Detaljer */
 
-.about-details {
-  display: flex;
-  justify-content: space-between;
-  gap: 60px;
+.about-details-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
 }
 
-.about-details h3 {
-  font-size: 14px;
-  text-transform: uppercase;
-  font-weight: 500;
-  margin-bottom: 15px;
-  color: #555;
+.row {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* 50/50 */
+  align-items: start;
+  border-top: 1px solid #ccc; /* streck över varje rad */
+  padding-top: 15px;
+  padding-bottom: 20px;
 }
 
-.about-details ul {
-  list-style: none;
-  padding: 0;
+.row ul {
   margin: 0;
+  padding: 0;
+  list-style: none; /* inga punkter */
+  font-size: 30px;
 }
 
-.about-details li {
-  margin-bottom: 10px;
-  font-size: 16px;
+.row li {
+  margin-bottom: 6px; /* lite luft mellan items */
 }
+
 
 /* Responsiv design  */
 @media (max-width: 600px) {
@@ -181,14 +294,33 @@ header {
   .logo {
     display: inline-block; /* behåll logon */
   }
+
+
+  .intro{
+    width: 100%;             /* Tar upp hela bredden */
+    margin: 0;               /* Ingen auto-margin */
+    padding: 1.5rem;
+    align-items: left;
+    justify-content: left;
+    text-align:left ;
+  }
+
+  .intro h1 {
+    font-size: 6rem;         /* Mindre rubrik på mobil */
+  }
+
+  .intro h2 {
+    font-size: 1rem;         /* Gör underrubriken också lite mindre */
+  }
 }
 
 @media (max-width: 768px) {
+
   .about-container {
     flex-direction: column; /* stapla bild + text */
     align-items: center;
     gap: 20px; /* mindre mellanrum på mobil */
-  }s
+  }
   .about-image {
     width: 100%;
     display: flex;          /* Gör så att bilden kan centreras */
@@ -207,4 +339,24 @@ header {
     font-size: clamp(16px, 4vw, 22px); /* dynamisk text på mobil */
     line-height: clamp(1.4, 4vw, 1.6);
   }
+
+  .rows {
+    grid-template-columns: 1fr; /* en kolumn */
+    gap: 15px;
+  }
+
+  .rows .image {
+    order: 1; /* bilden alltid först */
+  }
+
+  .text h2{
+    font-size: 24px; 
+  }
+
+  .rows .text {
+    order: 2; /* texten alltid under */
+    text-align: left; /* vänsterjusterad */
+  }
 }
+
+
