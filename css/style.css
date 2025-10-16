@@ -80,17 +80,19 @@ h3 {
 
 /* Pitch section */
 .intro {
-  width: 50%;           /* Ta upp halva bredden */
-  margin-left: auto;    /* Tryck den till höger */
-  padding: 2rem;
+  width: 60%;             /* slightly narrower content area for a nice layout */
+  margin: 0;              /* remove the right alignment */
+  padding: 4rem 2rem;     /* add more inner space */
   display: flex;
   flex-direction: column;
-  justify-content: center; /* Centrera innehåll vertikalt */
+  justify-content: center; 
+  align-items: flex-start; /* left-align content */
+  text-align: left;        /* ensure text aligns left */
 }
 
 .intro h1 {
   margin: 0;
-  font-size: clamp(1.5rem, 12vw, 10rem);
+  font-size: clamp(2rem, 10vw, 10rem);
   margin-bottom: 1rem;
   font-weight: 500;
   line-height: 1.1;
@@ -98,12 +100,11 @@ h3 {
 
 .intro h2 {
   padding-top: 15px;
-  font-size: clamp(1rem, 3vw, 1.2rem);
-   margin: 0;
-  font-size: 1.2rem;
-  font-weight: 200;
-  line-height: 1.5;
-  border-bottom: 1000px;
+  font-size: clamp(1rem, 3vw, 1.3rem);
+  margin: 0;
+  font-weight: 300;
+  line-height: 1.6;
+  max-width: 700px; /* keeps text from stretching too wide */
 }
 
 
@@ -360,3 +361,114 @@ h3 {
 }
 
 
+/* project page styling */
+/* PROJECT HEADER – matchar indentering med .intro */
+/* PROJECT HEADER – matchar .intro indentering */
+
+.container {
+  width: 100%;
+  margin: 0 auto;     /* centrerar hela sidan */
+  padding: 0 2rem;    /* avstånd från kanterna */
+  box-sizing: border-box; /* inkluderar padding i bredden */
+}
+
+.project-header h1 {
+  font-size: clamp(2rem, 6vw, 4rem);
+  font-weight: 500;
+  margin-bottom: 20px;
+  color: #111;
+}
+
+/* Horisontell lista med vertikal label+value */
+.project-info {
+  display: flex;
+  gap: 70px;       /* avstånd mellan varje kolumn */
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.project-info li {
+  display: flex;
+  flex-direction: column; /* label ovanför value */
+  align-items: flex-start;
+}
+
+.project-info .label {
+  margin: 0;
+  font-weight: 300; /* tunnare */
+  font-size: 15px;
+  color: #555;
+  text-transform: uppercase;
+}
+
+.project-info .value {
+  font-weight: 400;
+  color: #111;
+  font-size: 20px;
+}
+
+.image-main{
+  width: 100%;            /* Fyller hela tillgängliga bredden */
+  margin: 40px 0 auto;         /* Centrerar elementet */
+  overflow: hidden;       /* Skär bort överflödig del om bilden ska beskäras */
+  border-radius: 10px;    /* Valfritt: rundade hörn */
+}
+
+.image-main img {
+  width: 100%;            /* Bilden fyller hela behållaren */
+  height: auto;  
+  max-height: 700px;         /* Behåller proportioner */
+  display: block;         /* Tar bort extra utrymme under bilden */
+  object-fit: cover;  
+}
+
+.info p{
+  font-weight: 400;
+  color: #111;
+  font-size: 30px;
+}
+
+.Project-description {
+  display: flex;
+  justify-content: space-between; /* skapar ett stort mellanrum mellan vänster och höger sida */
+  align-items: flex-start; /* ser till att texten justeras upptill */
+  gap: 4rem; /* extra mellanrum mellan elementen om du vill */
+  margin: 4rem 0;
+}
+
+.Project-description h3 {
+  text-align: left;
+  flex: 2; /* låter h3 ta upp viss plats till vänster */
+}
+
+.Project-description .info {
+  flex: 2; /* gör att infon tar mer plats till höger */
+  text-align: left; /* justerar texten till höger */
+}
+
+/* Responsiv: stapla på små skärmar */
+@media (max-width: 600px) {
+  .project-header {
+    width: 100%;
+    padding: 1.5rem;
+  }
+
+  .project-info {
+    flex-direction: column; /* stapla kolumnerna på mobil */
+    gap: 15px;
+  }
+
+  .project-info li {
+    align-items: flex-start;
+  }
+
+  .Project-description {
+    flex-direction: column;
+  }
+
+  .Project-description .info {
+    text-align: left;
+    margin-top: 1rem;
+  }
+}
