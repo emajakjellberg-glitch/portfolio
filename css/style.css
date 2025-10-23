@@ -400,12 +400,12 @@ h2 {
   display: grid;
   grid-template-columns: repeat(2, 1fr); /* Två bilder bredvid varandra */
   gap: 1rem; /* Mellanrum mellan bilderna */
+  margin-bottom: 4rem;
 }
 
 .image-secondary img {
   width: 100%;
   border-radius: 8px;
-  margin-bottom: 4rem;
   height: 500px; /* set a fixed height */
   object-fit: cover; 
 }
