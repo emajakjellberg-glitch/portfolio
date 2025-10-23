@@ -26,6 +26,12 @@ h3 {
   text-transform: uppercase;
 }
 
+h2 {
+  margin: 0;
+  font-weight: 300; /* tunnare */
+  font-size: clamp(1rem, 2vw + 0.5rem, 1.2rem);
+}
+
 /* Logo */
 .logo {
   font-weight: light;
@@ -91,7 +97,7 @@ h3 {
 
 .intro h1 {
   margin: 0;
-  font-size: clamp(0.5rem, 5vw, 6rem);
+  font-size: clamp(0.5rem, 5vw, 5rem);
   margin-bottom: 4rem;
   margin-top: 4rem;
   font-weight: 400;
@@ -109,11 +115,12 @@ h3 {
 
 .project-grid .image img {
   width: 100%;
+  height: auto;
   border-radius: 12px;
   object-fit: cover;
 }
 
-.project-grid .image .img:hover {
+.project-grid .image:hover {
   transform: scale(1.02);
   transition: transform 0.3s ease;
 }
@@ -123,7 +130,6 @@ h3 {
 }
 
 .project h2{
-  font-size: clamp(1rem, 2vw + 0.5rem, 1.6rem);
   font-weight: 400;
   margin-top: 5px;
   margin-bottom: 0.5rem;
@@ -156,6 +162,7 @@ h3 {
   border-radius: 12px;
   object-fit: cover;
 }
+
 
 /* Text */
 .about-text {
@@ -368,7 +375,7 @@ h3 {
 .info p, l{
   font-weight: 400;
   color: #111;
-  font-size: 30px;
+  font-size: 35px;
 }
 
 .info-section {
@@ -397,8 +404,56 @@ h3 {
 
 .image-secondary img {
   width: 100%;
-  height: auto;
   border-radius: 8px;
+  margin-bottom: 4rem;
+  height: 500px; /* set a fixed height */
+  object-fit: cover; 
+}
+
+.problems-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  margin-top: 1rem;
+  margin-bottom: 6rem;
+}
+
+.problem-card {
+  background: #eeee;
+  border-radius: 16px;
+  padding: 2rem;
+  text-align: left;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.problem-card h4 {
+  font-size: 1.4rem;
+  font-weight: 500;
+  margin-bottom: 0.75rem;
+  color: #111;
+}
+
+.problem-card p {
+  font-size: 1.05rem;
+  color: #222;
+  line-height: 1.6;
+}
+
+/* Responsive layout */
+@media (max-width: 900px) {
+  .problems-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .problems-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .problem-card {
+    padding: 1.5rem;
+  }
 }
 
 /* På mobil: stapla dem ovanpå varandra */
