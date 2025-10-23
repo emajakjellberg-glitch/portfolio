@@ -97,7 +97,7 @@ h2 {
 
 .intro h1 {
   margin: 0;
-  font-size: clamp(0.5rem, 5vw, 5rem);
+  font-size: clamp(2.5rem, 5vw, 5rem);
   margin-bottom: 4rem;
   margin-top: 4rem;
   font-weight: 400;
@@ -207,7 +207,6 @@ h2 {
   }
 }
 
-/* Responsiv design  */
 @media (max-width: 600px) {
 
   .hamburger {
@@ -216,12 +215,15 @@ h2 {
 
   .menu {
     display: none; 
-    position: absolute;
-    top: 80px; /* under header */
+    position: fixed;        /* ✅ fills entire screen */
+    top: 0;
     left: 0;
     width: 100%;
-    background-color: #fff;
-    text-align: left; /* vänsterjusterad */
+    height: 100vh;          /* ✅ full viewport height */
+    background-color: #fff; /* or rgba(255,255,255,0.97) for slight transparency */
+    text-align: left;       
+    padding-top: 120px;     /* push items down a bit under logo/hamburger */
+    z-index: 9;             /* keep behind hamburger but above content */
   }
 
   .menu.show {
@@ -233,16 +235,16 @@ h2 {
     flex-direction: column;
     gap: 30px;
     margin: 0;
-    padding: 0 15px; /* matchar headerns padding-left */
+    padding: 0 15px;
   }
 
   .menu li {
-    list-style: none; /* inga punkter */
+    list-style: none;
   }
 
   .menu a {
     font-size: 50px; 
-    text-decoration: none; /* ingen understrykning */
+    text-decoration: none;
     color: #000;
   }
 
@@ -251,7 +253,8 @@ h2 {
   }
 
   .logo {
-    display: inline-block; /* behåll logon */
+    display: inline-block;
+    z-index: 10; /* ensures logo is above menu overlay if needed */
   }
 }
 
@@ -372,10 +375,10 @@ h2 {
   object-fit: cover;  
 }
 
-.info p, l{
+.info p{
   font-weight: 400;
   color: #111;
-  font-size: 35px;
+  font-size: clamp(1.5rem, 2vw, 3rem);
 }
 
 .info-section {
@@ -389,10 +392,11 @@ h2 {
 .info-section h3 {
   text-align: left;
   flex: 2; /* låter h3 ta upp viss plats till vänster */
+  margin-top: 2rem;
 }
 
 .info-section .info {
-  flex: 2; /* gör att infon tar mer plats till höger */
+  flex: 3; /* gör att infon tar mer plats till höger */
   text-align: left; /* justerar texten till höger */
 }
 
@@ -406,7 +410,7 @@ h2 {
 .image-secondary img {
   width: 100%;
   border-radius: 8px;
-  height: 500px; /* set a fixed height */
+  height: clamp(200px, 30vw, 500px);
   object-fit: cover; 
 }
 
@@ -447,29 +451,44 @@ h2 {
   line-height: 1.6;
 }
 
-/* Responsive layout */
-@media (max-width: 900px) {
-  .problems-grid {
-    grid-template-columns: 1fr 1fr;
-  }
-}
-
-@media (max-width: 600px) {
-  .problems-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .problem-card {
-    padding: 1.5rem;
-  }
-}
 
 /* På mobil: stapla dem ovanpå varandra */
 @media (max-width: 768px) {
+.info-section h3 {
+    margin-bottom: 0rem; /* smaller space below heading */
+  }
+
+  .info-section .info p {
+    margin-top: 0rem; /* reduce the space above the paragraph */
+  }
+
+  .image-secondary img{
+    height: 300px;
+  }
+
   .image-secondary {
     grid-template-columns: 1fr;
   }
+
+
+  .info-section {
+    flex-direction: column;   /* stack elements vertically */
+    gap: 1rem;                /* smaller space between items */
+  }
+
+  .info-section .info {
+    flex: none;               /* disable the flex proportions */
+    width: 100%;              /* make each take full width */
+    text-align: left;       /* optional: center text for mobile */
+  }
 }
+
+@media (max-width: 1000px) {
+  .card-grid-3 {
+    grid-template-columns: 1fr;
+  }
+}
+
 
 .more-projects ul {
   list-style: none;
@@ -489,7 +508,7 @@ h2 {
 .more-projects a {
   text-decoration: none;
   color: #000;
-  font-size: 4vw; /* gör texten stor och responsiv */
+  font-size: clamp(2rem, 5vw, 4rem); /* gör texten stor och responsiv */
   font-weight: 400;
   font-family: "DM Sans", sans-serif;
   flex-grow: 1;
