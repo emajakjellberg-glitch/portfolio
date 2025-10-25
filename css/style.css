@@ -69,13 +69,20 @@ header {
 /* Hamburger menu */
 .hamburger {
   display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 25px;
+  height: 20px;
   cursor: pointer;
   z-index: 10;
 }
 
-.hamburger .material-icons {
-  font-size: 30px;
-  color: #000;
+.hamburger span {
+  display: block;
+  height: 1.5px;
+  background-color: #000;
+  border-radius: 1px;
+  transition: 0.3s;
 }
 
 /* INTRO SECTION */
@@ -435,7 +442,7 @@ header {
   }
 
   .hamburger {
-    display: block;
+    display: flex;
   }
 
   .menu {
