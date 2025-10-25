@@ -438,6 +438,10 @@ header {
 
 /* --- Small Mobile (<=600px) --- */
 @media (max-width: 600px) {
+  body {
+  margin: 10px 20px;
+}
+
   .hamburger {
     display: flex;
   }
