@@ -20,7 +20,7 @@ h2 {
 h3 {
   margin: 0;
   font-weight: 300;
-  font-size: clamp(1rem, 2vw + 0.5rem, 2rem);
+  font-size: clamp(1.3rem, 2vw + 0.5rem, 2rem);
   /*color: #555;
   text-transform: uppercase;*/
 }
@@ -263,14 +263,14 @@ footer p{
 
 .project-info .label {
   font-weight: 300;
-  font-size: clamp(0.75rem, 1.5vw, 1rem); /* min 12px, max 15px */
+  font-size: clamp(1rem, 1.5vw, 1rem); /* min 12px, max 15px */
   color: #555;
   text-transform: uppercase;
 }
 
 .project-info .value {
   font-weight: 400;
-  font-size: clamp(1rem, 2vw, 1.3rem); /* min 16px, max 20px */
+  font-size: clamp(1.2rem, 2vw, 1.3rem); /* min 16px, max 20px */
   color: #111;
 }
 
@@ -326,7 +326,7 @@ footer p{
 
 .info p {
   font-weight: 300;
-  font-size: clamp(2rem, 2vw, 5rem);
+  font-size: clamp(1.5rem, 2vw + 0.5rem, 2rem);
   color: #111;
 }
 
