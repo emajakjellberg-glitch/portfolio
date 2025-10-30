@@ -75,22 +75,13 @@ header {
 }
 
 /* Hamburger menu */
+
 .hamburger {
   display: none;
-  flex-direction: column;
-  justify-content: space-between;
-  width: 1.3rem;
-  height: 1.25rem;
+  font-size: 1.5rem; /* size of the icon */
+  color: #000;
   cursor: pointer;
   z-index: 10;
-}
-
-.hamburger span {
-  display: block;
-  height: 1.5px;
-  background-color: #000;
-  border-radius: 1px;
-  transition: 0.3s;
 }
 
 /* Footer */
@@ -135,7 +126,7 @@ footer p{
 
 .intro h1 {
   margin: 4rem 0;
-  font-size: clamp(2.5rem, 5vw, 5rem);
+  font-size: clamp(2.8rem, 5vw, 5rem);
   font-weight: 400;
   line-height: 1.1;
 }
@@ -239,7 +230,7 @@ footer p{
 }
 
 .project-header h1 {
-  font-size: clamp(1.5rem, 6vw, 4rem);
+  font-size: clamp(2.5rem, 6vw, 4rem);
   font-weight: 500;
   margin-bottom: 1.25rem;;
   color: #111;
